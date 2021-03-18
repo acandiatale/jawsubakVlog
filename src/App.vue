@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ul>
+      <li v-for="item in items" v-bind:key="item.id">
+        <router-link :to="item.path">{{ item.path }}</router-link>
+      </li>
+    </ul>
+    <router-view></router-view>    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import routerItem from './routerItem'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data: function() {
+    return {
+      items: routerItem
+    }
   }
 }
 </script>
 
 <style>
+html{
+  margin: 0;
+  height: 100%;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  height: 100%;
 }
 </style>
