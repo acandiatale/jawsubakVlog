@@ -1,24 +1,31 @@
 <template>
   <div id="app">
-    <nav>
-      <ul>
-        <li v-for="item in items" v-bind:key="item.id">
-          <router-link :to="item.path">{{ item.name }}</router-link>
-        </li>
-      </ul>
-    </nav>
-    <router-view></router-view>
+    <ul>
+      <li v-for="item in items" v-bind:key="item.id">
+        <router-link :to="item.path">{{ item.name }}</router-link>
+      </li>
+    </ul>
+    <router-view></router-view>    
   </div>
 </template>
 
 <script>
-import routerItem from './routerItem'
+import routerItem from './router/routerItem'
 
 export default {
   name: 'App',
   data: function() {
     return {
-      items: routerItem
+      items: []
+    }
+  },
+  created: function() {
+    for(let item of routerItem){
+      // console.log(item)
+      if(item.name === "post"){
+        continue
+      }
+      this.items.push(item)
     }
   }
 }
