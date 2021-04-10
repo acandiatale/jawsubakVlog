@@ -22,7 +22,7 @@ export default {
   created: function() {
     for(let item of routerItem){
       // console.log(item)
-      if(item.name === "post"){
+      if(item.name === "Post" || item.name === "NotFound" || item.name === "Main"){
         continue
       }
       this.items.push(item)
