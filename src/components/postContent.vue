@@ -1,6 +1,9 @@
 <template>
     <div>
-        <button @click="test">test</button>
+        <button @click="test">
+            test
+        </button>
+    
     </div>
 </template>
 
@@ -8,9 +11,24 @@
 export default {
     methods: {
         test: function() {
-            fetch('127.0.0.1:13579/test')
-            .then(res => console.log(res))
+            fetch("http://localhost:13579/post/test?id=1", {
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => { 
+                console.log(res)
+                return res.json() 
+            })
+            .then(json => {
+                console.log(json.name)
+            })
         }
+    },
+    mounted: function(){
+
     }
 }
 </script>

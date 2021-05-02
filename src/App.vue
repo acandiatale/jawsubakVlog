@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <span>
+      <a id="login" @click="loginRouting">LOG-IN</a>
+    </span>
     <ul>
       <li v-for="item in items" v-bind:key="item.id">
         <router-link :to="item.path">{{ item.name }}</router-link>
@@ -19,10 +22,17 @@ export default {
       items: []
     }
   },
+  methods: {
+    loginRouting: function(){
+      this.$router.push("login")
+    }
+  },
   created: function() {
     for(let item of routerItem){
       // console.log(item)
-      if(item.name === "Post" || item.name === "NotFound" || item.name === "Main"){
+      if(item.name === "Post" || item.name === "NotFound"
+       || item.name === "Main" || item.name === "MainRoot"
+       || item.name === "Login"){
         continue
       }
       this.items.push(item)

@@ -2,7 +2,10 @@
     <div id="vlog">
         <div id="post">
             <div class="listContent" v-for="post in postObj" v-bind:key="post.id">
-                <a class="linkPost" @click="movePost">
+                <a class="linkPost" @click="movePost(post.idx)">
+                    <strong>
+                        {{ post.idx }}
+                    </strong>
                     <strong>
                         {{ post.title }}
                     </strong>
@@ -24,15 +27,16 @@ export default {
     data: function() {
         return {
             postObj: [
-                {title: "omg", date:"2021-03-19", content: "이 글은. 어쩌고 저쩌고 블라블라 숃숑"},
-                {title: "dodo", date:"2021-03-20", content: "avjdjvj dkhskjdfh ehiuiweur"}
+                {idx: 1, title: "omg", date:"2021-03-19", content: "이 글은. 어쩌고 저쩌고 블라블라 숃숑"},
+                {idx: 2, title: "dodo", date:"2021-03-20", content: "avjdjvj dkhskjdfh ehiuiweur"}
             ]
 
         }
     },
     methods: {
-        movePost: function() {
-            this.$router.push("post")
+        movePost: function(idx) {
+            console.log(idx)
+            this.$router.push({name: "Post", query: {id: idx}})
         }
     },
     created: function() {

@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 
 const routes = new VueRouter({
     mode: 'history',
-    routes: routerItem
+    routes: routerItem,
 })
 
 
