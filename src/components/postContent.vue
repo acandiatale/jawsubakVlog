@@ -19,11 +19,11 @@ export default {
                 }
             })
             .then(res => { 
-                console.log(res)
+                console.log(res.headers['set-cookie'])
                 return res.json() 
             })
             .then(json => {
-                console.log(json.name)
+                console.log(json);
             })
         }
     },

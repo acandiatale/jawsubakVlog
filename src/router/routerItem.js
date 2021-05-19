@@ -10,7 +10,7 @@ let routes = [
     {path: '/introduce', name: "Introduce", component: introduce},
     {path: '/vlog', name: "Vlog", component: vlog},
     {path: '/post', name: "Post", component: post},
-    {path: '/error', name: "NotFound", component: notFound},
+    {path: '/*', name: "NotFound", component: notFound},
 ]
 
 export default routes
