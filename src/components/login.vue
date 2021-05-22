@@ -15,7 +15,13 @@
 export default {
     methods: {
         jwtTest: function(){
-            fetch("http://localhost:13579/jwt")
+            fetch("http://localhost:13579/jwt",{
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
             .then(res=>{return res.json()})
             .then(json=>{console.log(json)})
         }

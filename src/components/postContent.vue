@@ -11,7 +11,7 @@
 export default {
     methods: {
         test: function() {
-            fetch("http://localhost:13579/post/test?id=1", {
+            fetch("http://localhost:13579/test?id=1", {
                 method: 'GET',
                 mode: 'cors',
                 headers: {
